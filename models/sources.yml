@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: adventure_works
+    tables:
+      - name: currencyrate
+        description: precisa para conversao de moeda
+
+      - name: salesreason
+        description: temporario
+
+      - name: salesorderheadersalesreason
+        description: tabelas dos motivo de vendas

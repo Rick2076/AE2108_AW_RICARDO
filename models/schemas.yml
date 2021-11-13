@@ -1,0 +1,9 @@
+version: 2
+
+models:
+
+  - name: fact_order
+    description: ""
+    columns:
+      - name: salesorderid	
+        description: chave primária original da tabela fact_order
