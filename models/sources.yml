@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: adventure_works
+    tables:
+      - name: salesorderdetail
+        description: tabela vendas detalhado
+ 
+      - name: creditcard
+        description: cartao credito
+
+      - name: salesorderheader
+        description: tabela vendas bruto
+
+      - name: currencyrate
+        description: precisa para conversao de moeda
+
+      - name: salesreason
+        description: temporario
+
+      - name: salesorderheadersalesreason
+        description: tabelas dos motivo de vendas
+ 
+      - name: product
+        description: tabela product
+ 
+      - name: person
+        description: tabela person
+ 
+      - name: productcategory
+        description: categoria produto
+ 
+      - name: productsubcategory
+        description: subcategoria produto
+ 
+      - name: salesterritory
+        description: territorio

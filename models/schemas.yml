@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: fact_order
+    columns:
+      - name: salesorderdetailid
+
+  - name: dim_client
+    columns:
+      - name: businessentityid
+
+  - name: dim_region
+    columns:
+      - name: territoryid
+        
+  - name: dim_products
+    columns:
+      - name: productid
