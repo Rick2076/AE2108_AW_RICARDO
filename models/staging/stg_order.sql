@@ -30,7 +30,7 @@ WITH
         ,_sdc_received_at
         ,_sdc_sequence
         ,_sdc_batched_at
-    FROM {{ source('adventure_works','currencyrate') }}
+    FROM {{ source('adventure_works','salesorderheader') }}
 )
 
 SELECT * FROM sources
