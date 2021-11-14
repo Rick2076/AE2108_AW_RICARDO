@@ -20,7 +20,7 @@ with
 ), 
     product as (
         Select *
-        from {{ ref('dim_product') }}
+        from {{ ref('dim_products') }}
 ), 
     region as (
         Select *
