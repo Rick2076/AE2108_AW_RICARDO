@@ -15,7 +15,7 @@ WITH
         , rowguid	
         , taxamt	
         , onlineorderflag	
-        , 'status'
+        , [dbo].[status]
         , orderdate
         , creditcardapprovalcode	
         , subtotal	
