@@ -12,7 +12,7 @@ WITH
 ), subcategory as (
     SELECT 
         s.productcategoryid	
-        , s."name" as subcategory
+        , s.name as subcategory
         , s.productsubcategoryid
     FROM {{ source('adventure_works','productsubcategory') }} s
         left join category c on s.productcategoryid=c.productcategoryid
