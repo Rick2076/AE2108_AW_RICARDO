@@ -2,7 +2,7 @@ WITH
     category as (
     SELECT 
         productcategoryid	
-        , [name] as category		
+        , 'name' as category		
         ---Sticht
         ,_sdc_table_version	
         ,_sdc_received_at
@@ -12,7 +12,7 @@ WITH
 ), subcategory as (
     SELECT 
         s.productcategoryid	
-        , s.[name] as subcategory
+        , s.'name' as subcategory
         , s.productsubcategoryid
     FROM {{ source('adventure_works','productsubcategory') }} s
         left join category c on s.productcategoryid=c.productcategoryid
