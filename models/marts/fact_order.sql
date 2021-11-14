@@ -70,18 +70,18 @@ with
         , middlename		
         , lastname
         , cardtype
-        , averagerate
-        , od.modifieddate	
-        , od.orderqty	
-        , od.unitpricediscount	
-        , od.unitprice	
+        , country
+        , country_group	
         , o.orderdate
+        , (((od.unitprice)/(averagerate))*(od.orderqty))*(1-od.unitpricediscount) as totalvalue
         , o.subtotal	
         , o.shipdate
         , o.freight	
         , o.totaldue
-        , country
-        , country_group	
+        , od.orderqty	
+        , od.unitpricediscount	
+        , od.unitprice	
+        , averagerate
         , o.customerid	
         , o.territoryid	
         , o.creditcardid		
