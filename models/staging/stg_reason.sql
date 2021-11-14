@@ -3,7 +3,7 @@ WITH
     SELECT 
         salesreasonid
         , reasontype
-        , name	
+        , [name]	
         ---Sticht
         ,_sdc_table_version	
         ,_sdc_received_at
@@ -15,7 +15,7 @@ WITH
     SELECT 
         sor.salesreasonid
         , sor.salesorderid
-        , t."name"
+        , t.[name]
         ---Sticht
         ,sor._sdc_table_version	
         ,sor._sdc_received_at
