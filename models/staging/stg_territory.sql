@@ -2,8 +2,8 @@ WITH
     sources as (
     SELECT 
         territoryid	
-        , "group"	
-        , "name"	
+        , group	
+        , name	
         , modifieddate		
         , costytd	
         , salesytd		

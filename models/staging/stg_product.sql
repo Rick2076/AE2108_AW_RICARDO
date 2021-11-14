@@ -3,17 +3,17 @@ WITH
     SELECT 
         productid	
         , productsubcategoryid	
-        , "name"	
+        , name as product_name	
         , style	
         , standardcost	
         , sizeunitmeasurecode	
         , listprice	
         , daystomanufacture	
         , productline	
-        , "size"	
+        , size as product_size
         , color	
         , sellstartdate	
-        , "weight"		
+        , weight		
         ---Sticht
         ,_sdc_table_version	
         ,_sdc_received_at

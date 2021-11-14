@@ -6,7 +6,7 @@ with
     product as (
         SELECT 
         p.productid	
-        , "name" 
+        , product_name 
         , category
         , subcategory
         , style	

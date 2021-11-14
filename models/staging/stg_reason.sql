@@ -3,7 +3,7 @@ WITH
     SELECT 
         salesreasonid
         , reasontype
-        , "name"	
+        , name	
         ---Sticht
         ,_sdc_table_version	
         ,_sdc_received_at

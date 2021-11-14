@@ -9,7 +9,7 @@ with
         Select 
         salesreasonid
         , salesorderid
-        , "name" as reason
+        , name as reason
         from {{ ref('stg_reason') }}
 ),
     credit as (
@@ -30,11 +30,11 @@ with
         Select *
         from {{ ref('dim_client') }}
 ), 
-    "order" as (
+    order as (
         Select
         o.salesorderid	
         , o.taxamt	
-        , o."status"
+        , o.status
         , r.reason
         , ce.firstname	
         , ce.middlename		
@@ -64,7 +64,7 @@ with
         Select   
         od.salesorderdetailid	
         , o.taxamt	
-        , o."status"
+        , o.status
         , reason
         , firstname	
         , middlename		
@@ -91,7 +91,7 @@ with
         , od.productid	
         , od.specialofferid	
         from{{ ref('stg_order_detail') }} od
-        left join "order" o on od.salesorderid = o.salesorderid
+        left join order o on od.salesorderid = o.salesorderid
 )
 
 Select * from final

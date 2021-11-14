@@ -2,7 +2,7 @@ WITH
     category as (
     SELECT 
         productcategoryid	
-        , "name" as category		
+        , name as category		
         ---Sticht
         ,_sdc_table_version	
         ,_sdc_received_at
