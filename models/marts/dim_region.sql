@@ -2,8 +2,8 @@ WITH
     selected as (
     SELECT 
         territoryid	
-        , group as country_group
-        , name as country
+        , country_group
+        , country
         , modifieddate		
         , costytd	
         , salesytd	
