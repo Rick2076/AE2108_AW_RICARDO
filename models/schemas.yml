@@ -1,9 +1,18 @@
 version: 2
 
 models:
-
   - name: fact_order
-    description: ""
     columns:
-      - name: salesorderid	
-        description: chave primária original da tabela fact_order
+      - name: salesorderdetailid
+
+  - name: dim_client
+    columns:
+      - name: businessentityid
+
+  - name: dim_region
+    columns:
+      - name: territoryid
+        
+  - name: dim_products
+    columns:
+      - name: productid
