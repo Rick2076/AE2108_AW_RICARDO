@@ -30,7 +30,7 @@ with
         Select *
         from {{ ref('dim_client') }}
 ), 
-    order as (
+    order_ as (
         Select
         o.salesorderid	
         , o.taxamt	
@@ -45,8 +45,9 @@ with
         , o.shipdate
         , o.freight	
         , o.totaldue
+        , re.city
+        , re.state_
         , re.country
-        , re.country_group	
         , averagerate
         , o.customerid	
         , o.territoryid	
@@ -63,25 +64,26 @@ with
     final as (
         Select   
         od.salesorderdetailid	
-        , o.taxamt	
-        , o.status
-        , reason
+        , o.orderdate
+        , o.shipdate
         , firstname	
         , middlename		
         , lastname
+        , sales_reason
         , cardtype
+        , city
+        , state_
         , country
-        , country_group	
-        , o.orderdate
         , (((od.unitprice)/(averagerate))*(od.orderqty))*(1-od.unitpricediscount) as totalvalue
-        , o.subtotal	
-        , o.shipdate
-        , o.freight	
-        , o.totaldue
         , od.orderqty	
         , od.unitpricediscount	
         , od.unitprice	
+        , o.subtotal	
+        , o.freight	
+        , o.totaldue
         , averagerate
+        , o.taxamt	
+        , o.status
         , o.customerid	
         , o.territoryid	
         , o.creditcardid		
@@ -91,7 +93,7 @@ with
         , od.productid	
         , od.specialofferid	
         from{{ ref('stg_order_detail') }} od
-        left join order o on od.salesorderid = o.salesorderid
+        left join order_ o on od.salesorderid = o.salesorderid
 )
 
 Select * from final

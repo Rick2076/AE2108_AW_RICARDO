@@ -25,21 +25,22 @@ WITH
 ),
     selected as (
         SELECT 
-            city
+            s.territoryid
+            ,city
             ,s.state_
             ,co.country
+            ,co.country_group
             ,c.stateprovinceid
-            ,s.territoryid
         FROM city c
         left join state_ s on c.stateprovinceid = s.stateprovinceid
         left join country co on s.territoryid = co.territoryid
-)
-, transformed as (
+),
+ transformed as (
     SELECT
-        row_number() over (order by territoryid) as territory_sk
+        row_number() over (order by territoryid) as region_sk
         ,*
     from selected
-    order by territory_sk
+    order by region_sk
 )
 
 SELECT* From transformed

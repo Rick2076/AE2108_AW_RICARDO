@@ -11,9 +11,9 @@ WITH
     FROM {{ source('adventure_works','productcategory') }} c
 ), subcategory as (
     SELECT 
-        s.productcategoryid	
+        s.productsubcategoryid
+        , s.productcategoryid	
         , s.name as subcategory
-        , s.productsubcategoryid
         , category
     FROM {{ source('adventure_works','productsubcategory') }} s
         left join category c on s.productcategoryid=c.productcategoryid
