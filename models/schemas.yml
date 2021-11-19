@@ -3,16 +3,16 @@ version: 2
 models:
   - name: fact_order
     columns:
-      - name: salesorderdetailid
+      - name: salesorderid
 
   - name: dim_client
     columns:
-      - name: businessentityid
+      - name: client_sk
 
   - name: dim_region
     columns:
-      - name: territoryid
+      - name: region_sk
         
   - name: dim_products
     columns:
-      - name: productid
+      - name: product_sk

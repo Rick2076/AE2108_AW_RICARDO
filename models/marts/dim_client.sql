@@ -6,8 +6,8 @@ WITH
         , middlename		
         , lastname	
     FROM {{ ref('stg_client') }}
-)
-, transformed as (
+),
+transformed as (
     SELECT
         row_number() over (order by businessentityid) as client_sk
         ,*

@@ -5,9 +5,15 @@ sources:
     tables:
       - name: salesorderdetail
         description: tabela vendas detalhado
- 
+
       - name: creditcard
         description: cartao credito
+
+      - name: stateprovince
+        description: estado
+
+      - name: address
+        description: cidade
 
       - name: salesorderheader
         description: tabela vendas bruto

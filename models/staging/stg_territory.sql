@@ -2,8 +2,11 @@ WITH
     sources as (
     SELECT 
         territoryid	
-        , "group"	
-        , "name"	
+        , t.group as country_group
+        , case
+            when countryregioncode = 'US' then 'USA'
+            when countryregioncode != 'US' then t.name
+        end as country
         , modifieddate		
         , costytd	
         , salesytd		
@@ -12,7 +15,7 @@ WITH
         ,_sdc_received_at
         ,_sdc_sequence
         ,_sdc_batched_at
-    FROM {{ source('adventure_works','salesterritory') }}
+    FROM {{ source('adventure_works','salesterritory') }} t
 )
 
 SELECT * FROM sources

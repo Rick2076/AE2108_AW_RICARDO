@@ -5,16 +5,23 @@ with
 ),
     product as (
         SELECT 
-        p.productid	
-        , "name" 
+        productid	
+        , product_name 
         , category
         , subcategory
         , style	
         , standardcost	
         , listprice	
-        , p.productcategoryid
+        , p.productsubcategoryid
     FROM {{ ref('stg_product') }} p
-    left join category c on o.productcategoryid = c.productcategoryid
-    )
+    left join category c on p.productsubcategoryid = c.productsubcategoryid
+),
+ transformed as (
+    SELECT
+        row_number() over (order by productid) as product_sk
+        ,*
+    from product
+    order by product_sk
+)
 
-Select * from product
+SELECT* From transformed

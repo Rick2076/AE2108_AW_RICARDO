@@ -1,20 +1,46 @@
 WITH
-    selected as (
-    SELECT 
+    country as (
+        SELECT 
         territoryid	
-        , "group" as country_group
-        , "name" as country
+        , country_group
+        , country
         , modifieddate		
         , costytd	
         , salesytd	
-    FROM {{ ref('stg_territory') }}
-)
-, transformed as (
+        FROM {{ ref('stg_territory') }}
+),
+    city as(
+        SELECT 
+        addressid
+        , city
+        , stateprovinceid	
+        FROM {{ ref('stg_city') }}
+),
+    state_ as(
+        SELECT 
+        stateprovinceid	
+        , territoryid	
+        , state_
+        FROM {{ ref('stg_state') }}
+),
+    selected as (
+        SELECT 
+            s.territoryid
+            ,city
+            ,s.state_
+            ,co.country
+            ,co.country_group
+            ,c.stateprovinceid
+        FROM city c
+        left join state_ s on c.stateprovinceid = s.stateprovinceid
+        left join country co on s.territoryid = co.territoryid
+),
+ transformed as (
     SELECT
-        row_number() over (order by territoryid) as territory_sk
+        row_number() over (order by territoryid) as region_sk
         ,*
     from selected
-    order by territory_sk
+    order by region_sk
 )
 
 SELECT* From transformed
