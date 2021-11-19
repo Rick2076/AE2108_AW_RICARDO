@@ -3,7 +3,7 @@ version: 2
 models:
   - name: fact_order
     columns:
-      - name: salesorderdetailid
+      - name: salesorderid
 
   - name: dim_client
     columns:

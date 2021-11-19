@@ -48,9 +48,9 @@ with
         , re.city
         , re.state_
         , re.country
-        , averagerate
+        , cr.averagerate
         , o.customerid	
-        , o.territoryid	
+        , o.territoryid
         , o.creditcardid		
         , o.salespersonid	
         , o.currencyrateid	
@@ -81,9 +81,10 @@ with
         , o.subtotal	
         , o.freight	
         , o.totaldue
-        , averagerate
+        , o.averagerate
         , o.taxamt	
         , o.status
+        , od.salesorderid
         , o.customerid	
         , o.territoryid	
         , o.creditcardid		
