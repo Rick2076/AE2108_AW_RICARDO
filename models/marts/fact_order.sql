@@ -9,7 +9,7 @@ with
         Select 
         salesreasonid
         , salesorderid
-        , 'name' as reason
+        , sales_reason
         from {{ ref('stg_reason') }}
 ),
     credit as (
@@ -34,8 +34,8 @@ with
         Select
         o.salesorderid	
         , o.taxamt	
-        , o.'status'
-        , r.reason
+        , o.status
+        , r.sales_reason
         , ce.firstname	
         , ce.middlename		
         , ce.lastname

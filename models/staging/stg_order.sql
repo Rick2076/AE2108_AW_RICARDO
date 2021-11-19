@@ -15,7 +15,7 @@ WITH
         , rowguid	
         , taxamt	
         , onlineorderflag	
-        , [dbo].[status]
+        , o.status
         , orderdate
         , creditcardapprovalcode	
         , subtotal	
@@ -30,7 +30,7 @@ WITH
         ,_sdc_received_at
         ,_sdc_sequence
         ,_sdc_batched_at
-    FROM {{ source('adventure_works','salesorderheader') }}
+    FROM {{ source('adventure_works','salesorderheader') }} o
 )
 
 SELECT * FROM sources
