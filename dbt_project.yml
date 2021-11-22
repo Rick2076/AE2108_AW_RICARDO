@@ -36,5 +36,4 @@ models:
       marts:
           materialized: table
       staging:
-#          materialized: ephemeral
-          materialized: table          
+          materialized: ephemeral    
