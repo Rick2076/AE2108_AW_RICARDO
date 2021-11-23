@@ -48,7 +48,11 @@ with
     , re.city
     , re.state_
     , re.country
-    , cr.averagerate
+    ,case
+        when re.country = 'USA' then 1
+        when re.country = 'Canada' then 1
+        else cr.averagerate
+    end as averagerate 
     , o.customerid	
     , o.territoryid
     , o.creditcardid		
