@@ -67,8 +67,9 @@ with
     , o.orderdate
     , o.shipdate
     , firstname	
-    , middlename		
+    , middlename
     , lastname
+    , product_name	
     , sales_reason
     , cardtype
     , city
@@ -94,6 +95,7 @@ with
     , od.specialofferid	
     from {{ ref('stg_order_detail') }} od
     left join order_ o on od.salesorderid = o.salesorderid
+    left join product p on od.productid = p.productid
 )
 
 Select * from final
